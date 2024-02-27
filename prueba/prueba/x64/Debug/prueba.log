@@ -1,0 +1,5 @@
+﻿  pch.cpp
+  AssemblyInfo.cpp
+  prueba.cpp
+  Generando código...
+C:\Users\jdsca\source\repos\prueba\prueba\prueba.cpp(78,1): error C1010: final de archivo inesperado al buscar la directiva de encabezado precompilado. Compruebe si olvidó agregar '#include "pch.h"' al código fuente?
