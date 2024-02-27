@@ -4,7 +4,8 @@
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Hola!\n";
+    std::cout << "xd!\n";
     cout << "docuemnto de pruba\n";
     int r = 45;
     int q = 44;
