@@ -1,0 +1,23 @@
+﻿  prueba_proyecto.cpp
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(142,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(144,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(146,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(148,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(161,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(163,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(180,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(182,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(184,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(189,9): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(194,5): error C2361: la inicialización de 'arbitro' se omite en la etiqueta 'default'
+  C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(175,16):
+  vea la declaración de 'arbitro'
+  
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(207,5): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(209,5): error C3861: 'getline': no se encontró el identificador
+C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(262,16): error C2248: 'Publicacion::cantidadEjemplares': no se puede obtener acceso al miembro protected miembro declarado en la clase 'Publicacion'
+  C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(15,9):
+  vea la declaración de 'Publicacion::cantidadEjemplares'
+  C:\Users\jdsca\source\repos\prueba_proyecto\prueba_proyecto\prueba_proyecto.cpp(8,7):
+  vea la declaración de 'Publicacion'
+  
