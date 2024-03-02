@@ -2,7 +2,8 @@
 using namespace std;
 #include <iostream>
 
-//Menu de publicaciones
+#include <string>
+Menu de publicaciones
 void menu() {
     int opcion;
     do {
@@ -18,19 +19,19 @@ void menu() {
 
         switch (opcion) {
         case 1:
-            registrarPublicacion();
+            //registrarPublicacion();
             break;
         case 2:
-            registrarCliente();
+          //  registrarCliente();
             break;
         case 3:
-            realizarPrestamo();
+          //  realizarPrestamo();
             break;
         case 4:
-            devolverPublicacion();
+           // devolverPublicacion();
             break;
         case 5:
-            menuReportes();
+          //  menuReportes();
             break;
         case 6:
             cout << "Saliendo del programa..." << endl;
@@ -41,7 +42,7 @@ void menu() {
     } while (opcion != 6);
 }
 
-//Menu de Multas
+Menu de Multas
 void menuReportes() {
     int opcion;
     do {
@@ -56,16 +57,16 @@ void menuReportes() {
 
         switch (opcion) {
         case 1:
-            reportePrestamos();
+         //   reportePrestamos();
             break;
         case 2:
-            reporteClientesPrestamos();
+          //  reporteClientesPrestamos();
             break;
         case 3:
-            reporteMorososMultas();
+         //   reporteMorososMultas();
             break;
         case 4:
-            reportePublicaciones();
+         //   reportePublicaciones();
             break;
         case 5:
             cout << "Volviendo al menú principal..." << endl;
@@ -77,6 +78,8 @@ void menuReportes() {
 }
 
 int main()
+
 {//Este es el archivo en donde vamos a empezar a hacer el proeycto.
-    std::cout << "Hello World!\n";
+	
+	return 0;
 }

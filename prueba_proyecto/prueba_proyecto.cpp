@@ -17,6 +17,7 @@ protected:
 public:
     // Constructor
     Publicacion(int id, string tit, string aut, string edi, string mat, int cant, string est = "disponible")
+
         : identificador(id), titulo(tit), autor(aut), editorial(edi), materia(mat), cantidadEjemplares(cant), estado(est) {}
 
     // Getters
