@@ -8,51 +8,19 @@
 #include "Libro.h"
 #include"Revista.h"
 using namespace std;
-class Animal {
-protected:
-    std::string nombre;
 
-public:
-    Animal(std::string nombre) {}
 
-    // Getter
-    std::string getNombre()  {
-        return nombre;
-    }
-
-    // Setter
-    void setNombre( std::string nuevoNombre) {
-        nombre = nuevoNombre;
-    }
-};
-class Perro : public Animal {
-private:
-    int edad;
-
-public:
-    Perro(std::string nombre, int edad) : Animal(nombre) {}
-
-    // Getter de la clase derivada (sobrescrito)
-    int getEdad()  {
-        return edad;
-    }
-
-    // Setter de la clase derivada (sobrescrito)
-    void setEdad(int nuevaEdad) {
-        edad = nuevaEdad;
-    }
-};
 int main()
 {
-    Perro* mi = new Perro("",0);
     
-    mi->setEdad(1);
-    mi->setNombre(" fran");
-    cout << mi->getEdad() << " " << mi->getNombre() << endl;
-    cout<<"-----------\n";
-    mi->setEdad(10);
-    mi->setNombre(" ffran");
-    cout << mi->getEdad() << " " << mi->getNombre() << endl;
+    
+    Libro libros[1];
+    cout << "de un nombre\n";
+    string a;
+    cin >> a;
+    for (int i = 0;i < 2;i++) {
+        libros[i].SetAutor(a);
+    }
     Articulo* uno = new Articulo(1," "," ",0,0," ");
     cout << "prueba\n";
     uno->SetId(45);
