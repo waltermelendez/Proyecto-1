@@ -141,12 +141,48 @@ void Menu_principal() {
             break;
         case 2:
             //  registrarCliente();
+            int numId;
+            string nombre, direccion;
+            cout << "Ingrese el número de identidad del cliente: ";
+            cin >> numId;
+            cout << "Ingrese el nombre del cliente: ";
+            cin.ignore();
+            getline(cin, nombre);
+            cout << "Ingrese la dirección del cliente: ";
+            getline(cin, direccion);
+            clientes.push_back(new Cliente(numId, nombre, direccion));
             break;
         case 3:
             //  realizarPrestamo();
+            int idCliente;
+            string tipoPublicacion;
+            cout << "Ingrese el ID del cliente: ";
+            cin >> idCliente;
+            // Verificar si el cliente existe
+            bool clienteEncontrado = false;
+            Cliente* cliente = nullptr;
+            for (auto& c : clientes) {
+                if (c->getNumId() == idCliente) {
+                    clienteEncontrado = true;
+                    cliente = c;
+                    break;
+                }
+            }
+            if (!clienteEncontrado) {
+                cout << "Cliente no encontrado." << endl;
+                return;
+            }
+
+            cout << "Ingrese el tipo de publicación a prestar (libro, revista, articulo): ";
+            cin >> tipoPublicacion;
+            // Lógica para realizar el préstamo según el tipo de publicación
+        }
             break;
         case 4:
             // devolverPublicacion();
+            int idPrestamo;
+            cout << "Ingrese el ID del préstamo a devolver: ";
+            cin >> idPrestamo;
             break;
         case 5:
             menuReportes();
