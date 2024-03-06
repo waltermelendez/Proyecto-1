@@ -58,6 +58,85 @@ void Menu_principal() {
 
         switch (opcion) {
         case 1:
+            cout << "que tipo de publicacion va a registar\n";
+            string docu, dato;
+            int num;
+            bool est;
+            Revista nuevarevista[1];
+            Libro nuevolibro[1];
+            Articulo nuevoarticulo[1]
+            switch (docu);
+            {
+            case "libro":
+
+                
+                cout << "de un nombre del autor del libro\n"
+                    cin >> dato;
+                nuevolibro[1].SetAutor(dato);
+                cout << "de el nombre del libro\n";
+                cin >> dato;
+                nuevolibro[1].SetTitulo();
+                cout << "de el numero de libros disponibles\n";
+                cin >> mun;
+                nuevolibro[1].SetCantiad(num);
+                cout << "de el numero de id del numero\n";
+                cin >> num;
+                nuevolibro[1].SetId(num);
+                cout << "de la materia del libro \n";
+                cin >> dato;
+                nuevolibro[1].SetMateria(dato);
+                cout << "de estado de los libros, 0 no disponible y 1 disponilble \n";
+                cin >> est;
+                cout << "de la editorial del libro \n";
+                cin >> dato;
+                nuevolibro[1].SetEditorial(dato);
+                break;
+            case "articulo":
+                
+                cout << "de el arbitro del articulo\n"
+                    cin >> dato;
+                nuevoarticulo[1].SetArbitro(dato);
+               
+                cout << "de el numero de articulos disponibles\n";
+                cin >> mun;
+                nuevoarticulo[1].SetCantiad(num);
+                cout << "de el numero de id del numero\n";
+                cin >> num;
+                nuevoarticulo[1].SetId(num);
+                cout << "de la materia del libro \n";
+                cin >> dato;
+                nuevolibro[1].SetMateria(dato);
+                cout << "de estado de los libros, 0 no disponible y 1 disponilble \n";
+                cin >> est;
+                nuevoarticulo[1].SetEstado(est);
+                cout << "de el titulo del articulo\n";
+                cin >> docu;
+                nuevoarticulo[1].SetTitulo(docu);
+                break;
+            case "revista":
+                cout << "de el nombre de la revista\n";
+                cin >> docu;
+                nuevarevista[1].SetTitulo(docu);
+                cout << "de el ID de la revista\n";
+                cin >> docu;
+                nuevarevista[1].SetId(docu);
+                cout << "de la materia de la revista\n";
+                cin >> docu;
+                nuevarevista[1].SetMateria(docu);
+                cout << "de la  cantidad de ejemplares en existencia de la revista\n";
+                cin >> num;
+                nuevarevista[1].SetNumero(num);
+                cout << "de el estado actual de la revista, 0  no disponible y 1 disponible\n";
+                cin >> est;
+                nuevarevista[1].SetEstado(est);
+                cout << " De el anio de publicacion de la revista\n";
+                cin >> docu;
+                nuevarevista[1].SetAnio(docu);
+                break;
+            default:
+                cout << "Ese no es un tipo de documento\n";
+                break;
+            }
             //registrarPublicacion();
             break;
         case 2:
