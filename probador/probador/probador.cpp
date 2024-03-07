@@ -68,8 +68,6 @@ void Menu_principal() {
             switch (docu);
             {
             case "libro":
-
-                
                 cout << "de un nombre del autor del libro\n"
                     cin >> dato;
                 nuevolibro[1].SetAutor(dato);
@@ -110,27 +108,27 @@ void Menu_principal() {
                 cin >> est;
                 nuevoarticulo[1].SetEstado(est);
                 cout << "de el titulo del articulo\n";
-                cin >> docu;
-                nuevoarticulo[1].SetTitulo(docu);
+                cin >> dato;
+                nuevoarticulo[1].SetTitulo(dato);
                 break;
             case "revista":
                 cout << "de el nombre de la revista\n";
-                cin >> docu;
-                nuevarevista[1].SetTitulo(docu);
+                cin >> dato;
+                nuevarevista[1].SetTitulo(dato);
                 cout << "de el ID de la revista\n";
-                cin >> docu;
-                nuevarevista[1].SetId(docu);
+                cin >> dato;
+                nuevarevista[1].SetId(dato);
                 cout << "de la materia de la revista\n";
-                cin >> docu;
-                nuevarevista[1].SetMateria(docu);
+                cin >> dato;
+                nuevarevista[1].SetMateria(dato);
                 cout << "de la  cantidad de ejemplares en existencia de la revista\n";
-                cin >> num;
+                cin >> dato;
                 nuevarevista[1].SetNumero(num);
                 cout << "de el estado actual de la revista, 0  no disponible y 1 disponible\n";
                 cin >> est;
                 nuevarevista[1].SetEstado(est);
                 cout << " De el anio de publicacion de la revista\n";
-                cin >> docu;
+                cin >> dato;
                 nuevarevista[1].SetAnio(docu);
                 break;
             default:
@@ -162,10 +160,6 @@ void Menu_principal() {
 }
 int main()
 {
-    
-    
-    
-    
     return 0;
 
 }
