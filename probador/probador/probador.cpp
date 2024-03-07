@@ -8,6 +8,10 @@
 #include "Libro.h"
 #include"Revista.h"
 using namespace std;
+//Pasos para usar con tortoise
+//primero comit
+//segundo PULL
+//tercero PUSH
 
 
 
