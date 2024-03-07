@@ -9,6 +9,13 @@ Documento::Documento(int id, string titulo, string materia, int cantidad, bool e
      Cantidad_Ejemplares = cantidad;
      Estado = estado;
 }
+Documento::Documento() {
+    this->Identificador = 0;
+    this->Estado = 0;
+    this->Materia = " ";
+    this->Cantidad_Ejemplares = 0;
+    this->Titulo = " ";
+}
 //Getters
 int Documento::GetId() {
     return Identificador;
