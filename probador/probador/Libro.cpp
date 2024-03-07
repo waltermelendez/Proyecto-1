@@ -2,7 +2,10 @@
 #include <string>
 using namespace std;
 Libro::Libro(int id, string titulo, string materia, int cantidad, bool estado, string editorial, string autor) :Documento(id, titulo, materia, cantidad, estado)
-{}
+{
+	this->Editorial = editorial;
+	this->Autor = autor;
+}
 string Libro::GetEditorial() {
 	return Editorial;
 }
@@ -14,4 +17,8 @@ string Libro::GetAutor() {
 }
 void Libro::SetAutor(string autor) {
 	this->Autor = autor;
+}
+Libro::Libro() :Documento() {
+	this->Editorial = " ";
+	this->Autor = " ";
 }

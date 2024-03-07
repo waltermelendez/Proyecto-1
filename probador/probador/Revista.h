@@ -13,5 +13,6 @@ public:
 	void SetAnio(int anio);
 	int GetNumero();
 	void SetNumero(int numero);
+	Revista();
 };
 

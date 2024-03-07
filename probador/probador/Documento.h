@@ -5,8 +5,7 @@ class Documento
 {
     int Identificador;
     string Titulo;
-    //string Autor;
-   // string Editorial;
+   
     string Materia;
     int Cantidad_Ejemplares;
     bool Estado;
@@ -25,5 +24,7 @@ public:
     void SetCantiad(int cantidad);
     bool GetEstado();
     void SetEstado(bool estado);
+    Documento();
+    
 };
 

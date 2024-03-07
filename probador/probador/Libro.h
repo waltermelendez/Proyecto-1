@@ -13,5 +13,6 @@ public:
 	void SetAutor(string autor);
 	string GetEditorial();
 	void SetEditorial(string editorial);
+	Libro();
 };
 

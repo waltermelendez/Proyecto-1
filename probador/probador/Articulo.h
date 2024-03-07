@@ -11,5 +11,7 @@ public:
 	string GetArbitro();
 	void SetArbitro(string arbitro);
 	Articulo(int id, string titulo, string materia, int cantidad, bool estado, string arbitro);
+	Articulo();
+
 };
 
