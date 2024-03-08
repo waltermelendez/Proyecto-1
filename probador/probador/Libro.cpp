@@ -19,6 +19,7 @@ void Libro::SetAutor(string autor) {
 	this->Autor = autor;
 }
 Libro::Libro() :Documento() {
+	
 	this->Editorial = " ";
 	this->Autor = " ";
 }

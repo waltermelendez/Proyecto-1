@@ -12,6 +12,8 @@ string Articulo::GetArbitro() {
 void Articulo::SetArbitro(string arbitro) {
 	this->Arbitro = arbitro;
 }
-Articulo::Articulo() :Documento() {
+Articulo::Articulo():Documento() 
+{
+	
 	this->Arbitro= " ";
 }

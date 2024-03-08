@@ -88,10 +88,7 @@ void Menu_principal() {
 
 			cin >> docu;
 			system("cls");
-			switch (docu);
-			{
-			case '1'://caso Libro
-
+			if (docu == 'L' || docu == 'l') {
 				do {
 					cout << "de un nombre del autor del libro\n";
 					cin >> dato;
@@ -119,10 +116,10 @@ void Menu_principal() {
 						cantidadL++;
 					}
 				} while (!ver);
-				break;
-			case '2'://Caso Articulo
+			}
+			else if (docu == 'A' || docu == 'a') {
 				ver = false;
-				system("cls");
+
 				do {
 					cout << "de el arbitro del articulo\n";
 					cin >> dato;
@@ -148,9 +145,9 @@ void Menu_principal() {
 						cantidadA++;
 					}
 				} while (!ver);
-
-				break;
-			case '3': //caso revista
+			}
+			else if (docu == 'r' || docu == 'R')
+			{
 				ver = false;
 				system("cls");
 				do {
@@ -178,17 +175,16 @@ void Menu_principal() {
 						cantidadR++;
 					}
 				} while (!ver);
-
-				break;
-			default:
-				cout << "tipo de documento invalido\n";
-				system("cls");
-				break;
 			}
+			else {
+				cout << "documento\n";
+			}
+
 			//registrarPublicacion();
 			break;
 		case 2:
 			cout << "registro de cliente\n";
+			
 			/* registrarCliente();
 		   int numId;
 		   string nombre, direccion;
@@ -200,7 +196,7 @@ void Menu_principal() {
 		   cout << "Ingrese la dirección del cliente: ";
 		   getline(cin, direccion);
 		   clientes.push_back(new Cliente(numId, nombre, direccion));*/
-			system("cls");
+		
 			break;
 		case 3:
 			cout << "realizar prestamo\n";
@@ -227,7 +223,7 @@ void Menu_principal() {
 			/*cout << "Ingrese el tipo de publicación a prestar (libro, revista, articulo): ";
 			cin >> tipoPublicacion;*/
 			// Lógica para realizar el préstamo según el tipo de publicación
-			system("cls");
+			
 			break;
 		case 4:
 			cout << "devoler publi\n";
@@ -235,16 +231,16 @@ void Menu_principal() {
 			int idPrestamo;
 			cout << "Ingrese el ID del préstamo a devolver: ";
 			cin >> idPrestamo;*/
-			system("cls");
+			
 			break;
 		case 5:
 			cout << "menu de reportes\n";
 			//menuReportes();
-			system("cls");
+			
 			break;
 		case 6:
 			cout << "Saliendo del programa..." << endl;
-			system("cls");
+			
 			break;
 
 		}

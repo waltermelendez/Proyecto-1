@@ -3,6 +3,7 @@
 using namespace std;
 class Documento
 {
+protected:
     int Identificador;
     string Titulo;
    
