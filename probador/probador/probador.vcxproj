@@ -127,16 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Articulo.cpp" />
+    <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="Documento.cpp" />
     <ClCompile Include="Libro.cpp" />
+    <ClCompile Include="Persona.cpp" />
     <ClCompile Include="probador.cpp" />
     <ClCompile Include="Revista.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
     <ClInclude Include="Articulo.h" />
+    <ClInclude Include="Cliente.h" />
     <ClInclude Include="Documento.h" />
     <ClInclude Include="Libro.h" />
+    <ClInclude Include="Persona.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Revista.h" />
   </ItemGroup>
