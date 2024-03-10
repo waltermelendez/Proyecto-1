@@ -9,6 +9,7 @@
 #include"Revista.h"
 #include <locale.h>
 using namespace std;
+#include <cstdio>
 //Pasos para usar con tortoise
 //primero comit
 //segundo PULL
@@ -52,22 +53,29 @@ void menuReportes() {
 		}
 	} while (opcion <= 5);
 }
+
 void Menu_principal() {
 	setlocale(LC_ALL, "Spanish");
 	Revista nuevarevista[1];
 	Libro nuevolibro[1];
 	Articulo nuevoarticulo[1];
 
-	int opc;
+	int opc=0;
 	int cantidadL = 0;//canitdad de REAL de libros
 	int cantidadA = 0;//canitdad de REAL de Articulos
 	int cantidadR = 0;//cantidad REAL de Revistas
 	int num = 0;//consigue los datos numericos  
-	string dato = " ";/*consigue los datos */
+	/*consigue los datos */
+	string d;
 	bool est = false;//consigue los datos de estado
-	bool ver = true; // seguir agregando
+	bool ver = false; // seguir agregando
+//l
+	string dato ;
+	string nombrelibro ;
+	string Dato;
+	string d2;
 	do {
-
+		
 		cout << "----- Menú Principal -----" << endl;
 		cout << "1. Registrar publicacion" << endl;
 		cout << "2. Registrar cliente" << endl;
@@ -76,8 +84,11 @@ void Menu_principal() {
 		cout << "5. Reportes" << endl;
 		cout << "6. Salir" << endl;
 		cout << "Seleccione una opción: ";
+		opc =  opc;
 		cin >> opc;
+		
 		system("cls");
+		
 		switch (opc) {
 		case 1:
 			char docu;
@@ -85,90 +96,112 @@ void Menu_principal() {
 			cout << "1) libro\n";
 			cout << "2) Articulo\n";
 			cout << "3) REvista\n";
-
 			cin >> docu;
+			
 			system("cls");
 			if (docu == 'L' || docu == 'l') {
+				cout << "cuando libros desea agregar\n";
+				cin >> cantidadL;
+				nuevolibro[0 + cantidadL];
+				int i = 0;
 				do {
+					
 					cout << "de un nombre del autor del libro\n";
-					cin >> dato;
-					nuevolibro[1 + cantidadL].SetAutor(dato);
+					cin.ignore();
+					getline(cin, dato);
+					
+					nuevolibro[0+ i].SetAutor(dato);
+
 					cout << "de el nombre del libro\n";
-					cin >> dato;
-					nuevolibro[1 + cantidadL].SetTitulo(dato);
+					
+					getline(cin, dato);
+				
+					nuevolibro[0 + i].SetTitulo(dato);
 					cout << "de el numero de libros disponibles\n";
 					cin >> num;
-					nuevolibro[1 + cantidadL].SetCantiad(num);
+					nuevolibro[0 + i].SetCantiad(num);
 					cout << "de el numero de id del numero\n";
 					cin >> num;
-					nuevolibro[1 + cantidadL].SetId(num);
+					nuevolibro[0 + i].SetId(num);
 					cout << "de la materia del libro \n";
-					cin >> dato;
-					nuevolibro[1 + cantidadL].SetMateria(dato);
+					cin.ignore();
+					getline(cin, dato);
+					
+					nuevolibro[0 + i].SetMateria(dato);
 					cout << "de estado de los libros, 0 no disponible y 1 disponilble \n";
 					cin >> est;
+					nuevolibro[0 + i].SetEstado(est);
 					cout << "de la editorial del libro \n";
-					cin >> dato;
-					nuevolibro[1 + cantidadL].SetEditorial(dato);
+					cin.ignore();
+					getline(cin, dato);
+					
+					nuevolibro[0 + i].SetEditorial(dato);
 					cout << "Desea agregar otro libro?, 1 si 0 no\n";
 					cin >> ver;
-					if (ver) {
-						cantidadL++;
-					}
-				} while (!ver);
+					
+				} while (cantidadL>i);
 			}
 			else if (docu == 'A' || docu == 'a') {
 				ver = false;
 
 				do {
+
 					cout << "de el arbitro del articulo\n";
-					cin >> dato;
-					nuevoarticulo[1 + cantidadA].SetArbitro(dato);
+					cin >> Dato;
+					nuevoarticulo[1 + cantidadA].SetArbitro(Dato);
 					cout << "de el numero de articulos disponibles\n";
 					cin >> num;
 					nuevoarticulo[1 + cantidadA].SetCantiad(num);
+
 					cout << "de el numero de id del numero\n";
 					cin >> num;
 					nuevoarticulo[1 + cantidadA].SetId(num);
-					cout << "de la materia del libro \n";
-					cin >> dato;
-					nuevolibro[1 + cantidadA].SetMateria(dato);
-					cout << "de estado de los libros, 0 no disponible y 1 disponilble \n";
+					cout << "de la materia del articulos \n";
+					cin >> Dato;
+					nuevolibro[1 + cantidadA].SetMateria(Dato);
+					cout << "de estado de los articluos, 0 no disponible y 1 disponilble \n";
 					cin >> est;
 					nuevoarticulo[1 + cantidadA].SetEstado(est);
 					cout << "de el titulo del articulo\n";
-					cin >> dato;
-					nuevoarticulo[1].SetTitulo(dato);
+					cin >> Dato;
+					nuevoarticulo[1].SetTitulo(Dato);
 					cout << "Desea agregar otro articulo?, 1 si 0 no\n";
 					cin >> ver;
 					if (ver) {
 						cantidadA++;
+						system("cls");
 					}
-				} while (!ver);
+				} while (ver);
 			}
 			else if (docu == 'r' || docu == 'R')
 			{
 				ver = false;
 				system("cls");
+
 				do {
 					cout << "de el nombre de la revista\n";
-					cin >> dato;
-					nuevarevista[1 + cantidadR].SetTitulo(dato);
+					cin >> d2;
+					nuevarevista[1 + cantidadR].SetTitulo(d2);
+
 					cout << "de el ID de la revista\n";
 					cin >> num;
 					nuevarevista[1 + cantidadR].SetId(num);
+
 					cout << "de la materia de la revista\n";
-					cin >> dato;
-					nuevarevista[1 + cantidadR].SetMateria(dato);
+					cin >> d2;
+					nuevarevista[1 + cantidadR].SetMateria(d2);
+
 					cout << "de la  cantidad de ejemplares en existencia de la revista\n";
-					cin >> dato;
+					cin >> num;
 					nuevarevista[1 + cantidadR].SetNumero(num);
+
 					cout << "de el estado actual de la revista, 0  no disponible y 1 disponible\n";
 					cin >> est;
 					nuevarevista[1 + cantidadR].SetEstado(est);
 					cout << " De el anio de publicacion de la revista\n";
-					cin >> dato;
-					nuevarevista[1 + cantidadR].SetAnio(docu);
+					cin >> num;
+
+					nuevarevista[1 + cantidadR].SetAnio(num);
 					cout << "Desea agregar otro revista?, 1 si 0 no\n";
 					cin >> ver;
 					if (ver) {
@@ -177,9 +210,11 @@ void Menu_principal() {
 				} while (!ver);
 			}
 			else {
-				cout << "documento\n";
+				cout << "documento incorecto\n";
+				break;
+			
+				system("cls");
 			}
-
 			//registrarPublicacion();
 			break;
 		case 2:
@@ -240,11 +275,15 @@ void Menu_principal() {
 			break;
 		case 6:
 			cout << "Saliendo del programa..." << endl;
-			
+			opc = 8;
+			break;
+		default:
+			opc = 8;
 			break;
 
 		}
-	} while (opc <= 6);
+		
+	} while (opc<=6);
 
 }
 

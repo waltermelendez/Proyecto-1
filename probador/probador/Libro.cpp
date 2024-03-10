@@ -1,10 +1,10 @@
 #include "Libro.h"
 #include <string>
 using namespace std;
-Libro::Libro(int id, string titulo, string materia, int cantidad, bool estado, string editorial, string autor) :Documento(id, titulo, materia, cantidad, estado)
+Libro::Libro(int id, string titulo, string materia, int cantidad, bool estado, string autor, string editorial) :Documento(id, titulo, materia, cantidad, estado)
 {
 	this->Editorial = editorial;
-	this->Autor = autor;
+	this->_Autor = autor;
 }
 string Libro::GetEditorial() {
 	return Editorial;
@@ -13,13 +13,13 @@ void Libro::SetEditorial(string editorial) {
 	this->Editorial = editorial;
 }
 string Libro::GetAutor() {
-	return Autor;
+	return _Autor;
 }
 void Libro::SetAutor(string autor) {
-	this->Autor = autor;
+	_Autor = autor;
 }
 Libro::Libro() :Documento() {
-	
+
 	this->Editorial = " ";
-	this->Autor = " ";
+	this->_Autor ="";
 }
