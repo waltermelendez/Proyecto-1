@@ -4,26 +4,21 @@ using namespace std;
 
 
 // Constructor
-Cliente::Cliente(int id, string nombre, string direccion, int cantidad) : Persona(id, nombre, direccion), {
-this->id = id;
-this->nombre = nombre;
-this->direccion = direccion;
-this->publicacion_presta = cantidad;
+Cliente::Cliente(int id, string nombre, string direccion, int publicacion_presta) : Persona(id, nombre, direccion) {
+
+this->publicacion_presta = publicacion_presta;
 
 }
-Cliente::Cliente():Persona {
-    id = 0;
-    nombre = " ";
-    direccion = " ";
-    publicacion_presta = 0;
+Cliente::Cliente() :Persona(){
+   this->publicacion_presta = 0;
 }
 // Getter
 int Cliente::Getpublicacion_presta() {
-    return cantidadPublicacionesPrestamo;
+    return publicacion_presta;
 }
 //Setter
-void Cliente::SetCAntidadPublicacionesPrestamo(int cantidad) {
-    this->cantidadPublicacionesPrestamo = cantidad;
+void Cliente::setPublicacion_presta(int publicacion_presta) {
+    this->publicacion_presta = publicacion_presta;
 }
 // Puedes implementar funciones específicas para los clientes si es necesario
 

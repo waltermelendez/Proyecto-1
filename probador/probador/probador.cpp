@@ -32,7 +32,40 @@ void menuReportes() {
 
 		switch (opcion) {
 		case 1:
-			//   reportePrestamos();
+			/*reportePrestamos();*/
+			/*string tipo;
+			int id = 0, nuLibro = 0, temp = 0;
+			cout << "que clase de documento va a registrar\n";
+			cin >> tipo;
+			cout << "ingrese el id del documento\n";
+			cin >> id;
+			if (tipo == "libro") {
+
+				for (int i = 0; i < 1;i++) {
+					if (nuevolibro[i].GetId() == id) {
+						cout << "Su libro es " + nuevolibro[i].GetTitulo() + " de " + nuevolibro[i].GetAutor() << endl;
+						cout << "cuantos libros desea prestar?\n";
+						cin >> nuLibro;
+						if (nuevolibro[i].GetEstado()) {
+							temp = nuevolibro[i].GetCantidad();
+							nuevolibro[i].SetCantiad(temp - nuLibro);
+							if (nuevolibro[i].GetCantidad() < 0) {
+								cout << "no hay sufientes libros o libros agotados\n";
+								nuevolibro[i].SetEstado(0);
+							}
+							else {
+								cout << "Sus libros han sido prestados\n";
+							}
+						}
+						else {
+							cout << "Lo sentimos, su libro no esta disponible\n";
+						}
+
+
+					}
+
+				}
+			}*/
 			break;
 		case 2:
 			//  reporteClientesPrestamos();
@@ -57,8 +90,9 @@ void menuReportes() {
 
 void Menu_principal(string nombre, string contrasenia) {
 	if (nombre == "adimin" && contrasenia == "ADMIN") {
-
-	}else{
+		//Esto se va a usar para dividir el admin y el cliente
+	}
+	else {
 
 	}
 	setlocale(LC_ALL, "Spanish");
@@ -66,7 +100,7 @@ void Menu_principal(string nombre, string contrasenia) {
 	Libro nuevolibro[1];
 	Articulo nuevoarticulo[1];
 
-	int opc=0;
+	int opc = 0;
 	int cantidadL = 0;//canitdad de REAL de libros
 	int cantidadA = 0;//canitdad de REAL de Articulos
 	int cantidadR = 0;//cantidad REAL de Revistas
@@ -76,12 +110,12 @@ void Menu_principal(string nombre, string contrasenia) {
 	bool est = false;//consigue los datos de estado
 	bool ver = false; // seguir agregando
 
-	string dato ;
-	string nombrelibro ;
+	string dato;
+	string nombrelibro;
 	string Dato;
 	string d2;
 	do {
-		
+
 		cout << "----- Menú Principal -----" << endl;
 		cout << "1. Registrar publicacion" << endl;//adimin
 		cout << "2. Registrar cliente" << endl;//adimin
@@ -90,11 +124,11 @@ void Menu_principal(string nombre, string contrasenia) {
 		cout << "5. Reportes" << endl;//admin
 		cout << "6. Salir" << endl;
 		cout << "Seleccione una opción: ";
-		opc =  opc;
+		opc = opc;
 		cin >> opc;
-		
+
 		system("cls");
-		
+
 		switch (opc) {
 		case 1:
 			char docu;
@@ -103,7 +137,7 @@ void Menu_principal(string nombre, string contrasenia) {
 			cout << "2) Articulo\n";
 			cout << "3) REvista\n";
 			cin >> docu;
-			
+
 			system("cls");
 			if (docu == 'L' || docu == 'l') {
 				cout << "cuando libros desea agregar\n";
@@ -111,17 +145,17 @@ void Menu_principal(string nombre, string contrasenia) {
 				nuevolibro[0 + cantidadL];
 				int i = 0;
 				do {
-					
+
 					cout << "de un nombre del autor del libro\n";
 					cin.ignore();
 					getline(cin, dato);
-					
-					nuevolibro[0+ i].SetAutor(dato);
+
+					nuevolibro[0 + i].SetAutor(dato);
 
 					cout << "de el nombre del libro\n";
-					
+
 					getline(cin, dato);
-				
+
 					nuevolibro[0 + i].SetTitulo(dato);
 					cout << "de el numero de libros disponibles\n";
 					cin >> num;
@@ -132,7 +166,7 @@ void Menu_principal(string nombre, string contrasenia) {
 					cout << "de la materia del libro \n";
 					cin.ignore();
 					getline(cin, dato);
-					
+
 					nuevolibro[0 + i].SetMateria(dato);
 					cout << "de estado de los libros, 0 no disponible y 1 disponilble \n";
 					cin >> est;
@@ -140,12 +174,12 @@ void Menu_principal(string nombre, string contrasenia) {
 					cout << "de la editorial del libro \n";
 					cin.ignore();
 					getline(cin, dato);
-					
+
 					nuevolibro[0 + i].SetEditorial(dato);
-					cout << "Desea agregar otro libro?, 1 si 0 no\n";
-					cin >> ver;
-					
-				} while (cantidadL>i);
+					/*cout << "Desea agregar otro libro?, 1 si 0 no\n";
+					cin >> ver;*/
+
+				} while (cantidadL > i);
 			}
 			else if (docu == 'A' || docu == 'a') {
 				ver = false;
@@ -218,14 +252,14 @@ void Menu_principal(string nombre, string contrasenia) {
 			else {
 				cout << "documento incorecto\n";
 				break;
-			
+
 				system("cls");
 			}
 			//registrarPublicacion();
 			break;
 		case 2:
 			cout << "registro de cliente\n";
-			
+
 			/* registrarCliente();
 		   int numId;
 		   string nombre, direccion;
@@ -237,7 +271,7 @@ void Menu_principal(string nombre, string contrasenia) {
 		   cout << "Ingrese la dirección del cliente: ";
 		   getline(cin, direccion);
 		   clientes.push_back(new Cliente(numId, nombre, direccion));*/
-		
+
 			break;
 		case 3:
 			cout << "realizar prestamo\n";
@@ -264,7 +298,7 @@ void Menu_principal(string nombre, string contrasenia) {
 			/*cout << "Ingrese el tipo de publicación a prestar (libro, revista, articulo): ";
 			cin >> tipoPublicacion;*/
 			// Lógica para realizar el préstamo según el tipo de publicación
-			
+
 			break;
 		case 4:
 			cout << "devoler publi\n";
@@ -272,24 +306,22 @@ void Menu_principal(string nombre, string contrasenia) {
 			int idPrestamo;
 			cout << "Ingrese el ID del préstamo a devolver: ";
 			cin >> idPrestamo;*/
-			
+
 			break;
 		case 5:
 			cout << "menu de reportes\n";
 			//menuReportes();
 			
 			break;
-		case 6:
-			cout << "Saliendo del programa..." << endl;
-			opc = 8;
-			break;
-		default:
-			opc = 8;
-			break;
+			/*case 6:
+				cout << "Saliendo del programa..." << endl;
+				opc = 8;
+				break;*/
+
 
 		}
-		
-	} while (opc<=6);
+
+	} while (opc < 6);
 
 }
 
@@ -300,8 +332,8 @@ int main()
 	cin >> nombre;
 	cout << "contrasenia:\n";
 	cin >> constrasenia;
-	
-	Menu_principal(string nombre, string constrsenia);
+
+	Menu_principal(nombre, constrasenia);
 
 	return 0;
 
