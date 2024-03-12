@@ -22,10 +22,10 @@ void menuReportes() {
 	int opcion;
 	do {
 		cout << "----- Menú de Reportes -----" << endl;
-		cout << "1. Reporte de préstamos" << endl;
-		cout << "2. Reporte de clientes con préstamos" << endl;
-		cout << "3. Reporte de morosos y multas" << endl;
-		cout << "4. Reporte de publicaciones" << endl;
+		cout << "1. Reporte de préstamos" << endl;//admin
+		cout << "2. Reporte de clientes con préstamos" << endl;//adimin
+		cout << "3. Reporte de morosos y multas" << endl;//adimin
+		cout << "4. Reporte de publicaciones" << endl;//admin
 		cout << "5. Volver al menú principal" << endl;
 		cout << "Seleccione una opción: \n";
 		cin >> opcion;
@@ -55,7 +55,12 @@ void menuReportes() {
 	} while (opcion <= 5);
 }
 
-void Menu_principal() {
+void Menu_principal(string nombre, string contrasenia) {
+	if (nombre == "adimin" && contrasenia == "ADMIN") {
+
+	}else{
+
+	}
 	setlocale(LC_ALL, "Spanish");
 	Revista nuevarevista[1];
 	Libro nuevolibro[1];
@@ -70,7 +75,7 @@ void Menu_principal() {
 	string d;
 	bool est = false;//consigue los datos de estado
 	bool ver = false; // seguir agregando
-//l
+
 	string dato ;
 	string nombrelibro ;
 	string Dato;
@@ -78,11 +83,11 @@ void Menu_principal() {
 	do {
 		
 		cout << "----- Menú Principal -----" << endl;
-		cout << "1. Registrar publicacion" << endl;
-		cout << "2. Registrar cliente" << endl;
-		cout << "3. Realizar préstamo" << endl;
-		cout << "4. Devolver publicación" << endl;
-		cout << "5. Reportes" << endl;
+		cout << "1. Registrar publicacion" << endl;//adimin
+		cout << "2. Registrar cliente" << endl;//adimin
+		cout << "3. Realizar préstamo" << endl;//cliente
+		cout << "4. Devolver publicación" << endl;//cliente
+		cout << "5. Reportes" << endl;//admin
 		cout << "6. Salir" << endl;
 		cout << "Seleccione una opción: ";
 		opc =  opc;
@@ -290,8 +295,13 @@ void Menu_principal() {
 
 int main()
 {
-	 
-	Menu_principal();
+	string nombre, constrasenia;
+	cout << "Nombre:\n";
+	cin >> nombre;
+	cout << "contrasenia:\n";
+	cin >> constrasenia;
+	
+	Menu_principal(string nombre, string constrsenia);
 
 	return 0;
 
