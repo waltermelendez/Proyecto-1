@@ -3,18 +3,21 @@
 
 
 #include "persona.h"
-
+#include <string>
+using namespace std;
 class Cliente : public Persona {
 private:
-    int cantidadPublicacionesPrestamo;
+    int publicacion_presta;
 
 public:
     // Constructor
-    Cliente(int id, const std::string& nombre, const std::string& direccion, int cantidad);
-
+    Cliente(int id, string nombre, string direccion, int cantidad);
+    Cliente();
     // Getter
-    int getCantidadPublicacionesPrestamo() const;
-
+    int Getpublicacion_presta();
+    
+    //Setter
+    void setPublicacion_presta(int cantidad);
     // Puedes agregar funciones específicas para los clientes
 };
 

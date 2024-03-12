@@ -1,20 +1,37 @@
 #include "Persona.h"
 
-
-
+#include <string>
+using namespace std;
 // Constructor
-Persona::Persona(int id, const std::string& nombre, const std::string& direccion)
-    : id(id), nombre(nombre), direccion(direccion) {}
-
+Persona::Persona(int id, string nombre, string direccion) {
+    this->direccion = direccion;
+    this->id = id;
+    this->nombre = nombre;
+}
+Persona::Persona() {
+    direccion = " ";
+    id = 0;
+    nombre = " ";
+}
 // Getters
-int Persona::getId() const {
+int Persona::getId()  {
     return id;
 }
 
-const std::string& Persona::getNombre() const {
+string Persona::getNombre()  {
     return nombre;
 }
 
-const std::string& Persona::getDireccion() const {
+string Persona::getDireccion()  {
     return direccion;
+}
+//setters
+void Persona::Setdireccion(string direccion) {
+    this->direccion = direccion;
+}
+void Persona::SetNombre(string nombre){
+    this->nombre = nombre;
+}
+void Persona::SetId(int id){
+    this->id = id;
 }

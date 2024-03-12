@@ -10,6 +10,7 @@
 #include <locale.h>
 using namespace std;
 #include <cstdio>
+
 //Pasos para usar con tortoise
 //primero comit
 //segundo PULL
@@ -289,7 +290,7 @@ void Menu_principal() {
 
 int main()
 {
-
+	 
 	Menu_principal();
 
 	return 0;
