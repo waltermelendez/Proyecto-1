@@ -19,5 +19,9 @@ public:
     //Setter
     void setPublicacion_presta(int publicacion_presta);
     // Puedes agregar funciones específicas para los clientes
+
+    //metodos de registro
+    void RegistarCliente(string nombreCliente, string NombreLibro, int cantidad, int Id);
+   
 };
 
