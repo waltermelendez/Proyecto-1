@@ -1,5 +1,5 @@
 // probador.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
+//	
 
 #include <iostream>
 #include <string>
@@ -8,6 +8,7 @@
 #include "Libro.h"
 #include"Revista.h"
 #include <locale.h>
+#include <vector>
 using namespace std;
 #include <cstdio>
 #include <vector>
@@ -20,6 +21,143 @@ using namespace std;
 vector<Revista> nuevarevista;
 vector<Libro> nuevolibro;
 vector<Articulo> nuevoarticulo;
+
+class Publicacion {
+protected:
+	int id;
+	string titulo;
+	string materia;
+	bool estado; // Disponible o agotadopublic:
+
+	//constructor prederteminado 
+	Publicacion() : id(0), titulo(""), materia(""), estado(false) {}
+	Publicacion(int _id, string _titulo, string _materia, bool _estado) : id(_id), titulo(_titulo), materia(_materia), estado(_estado) {}
+
+	// Getters
+	int getId() const { return id; }
+	string getTitulo() const { return titulo; }
+	string getMateria() const { return materia; }
+	bool getEstado() const { return estado; }
+};
+
+class Libro : public Publicacion {
+private:
+	string autor;
+	string editorial;
+	int cantidadEjemplares;
+
+public:
+
+	//constructor 
+	Libro() : autor(""), editorial(""), cantidadEjemplares(0) {}
+
+
+
+	Libro(int _id, string _titulo, string _materia, bool _estado, string _autor, string _editorial, int _cantidadEjemplares) :
+		Publicacion(_id, _titulo, _materia, _estado), autor(_autor), editorial(_editorial), cantidadEjemplares(_cantidadEjemplares) {}
+
+	// Getters
+	string getAutor() const { return autor; }
+	string getEditorial() const { return editorial; }
+	int getCantidadEjemplares() const { return cantidadEjemplares; }
+
+	//setters
+	void SetAutor(const string& _autor) { autor = _autor; }
+	void SetEditorial(const string& _editorial) { editorial = _editorial; }
+	void SetCantiad(int _cantiad) { int cantiad = _cantiad; }
+	// heredados
+	void SetId(int _id) { id = _id; }
+	void SetTitulo(const string& _titulo) { titulo = _titulo; }
+	void SetMateria(const string& _materia) { materia = _materia; }
+	void SetEstado(bool _estado) { estado = _estado; }
+
+
+
+
+
+};
+
+class Revista : public Publicacion {
+private:
+	int anio;
+	int numero;
+
+public:
+	// constructor predeterminado 
+
+	Revista() : anio(0), numero(0) {}
+	Revista(int _id, string _titulo, string _materia, bool _estado, int _anio, int _numero) :
+		Publicacion(_id, _titulo, _materia, _estado), anio(_anio), numero(_numero) {}
+
+	// Getters
+	int getAnio() const { return anio; }
+	int getNumero() const { return numero; }
+
+	//setters 
+	void SetAnio(int _anio) { anio = _anio; }
+	void SetNumero(int _numero) { numero = _numero; }
+
+
+	void SetId(int _id) { id = _id; }
+	void SetTitulo(string _titulo) { titulo = _titulo; }
+	void SetMateria(string _materia) { materia = _materia; }
+	void SetAnio(int _anio) { anio = _anio; }
+	void SetEstado(bool _estado) { estado = _estado; }
+
+}; 
+
+class Articulo : public Publicacion {
+private:
+	string arbitro;
+
+public:
+	//constructor predeterminado 
+	Articulo() : arbitro("") {}
+	Articulo(int _id, string _titulo, string _materia, bool _estado, string _arbitro) :
+		Publicacion(_id, _titulo, _materia, _estado), arbitro(_arbitro) {}
+
+	// Getter
+	string getArbitro() const { return arbitro; }
+
+	// Setter
+	void SetArbitro(const string& _arbitro) { arbitro = _arbitro; }
+
+	// Heredados
+	void SetId(int _id) { id = _id; }
+	void SetTitulo(const string& _titulo) { titulo = _titulo; }
+	void SetMateria(const string& _materia) { materia = _materia; }
+	void SetEstado(bool _estado) { estado = _estado; }
+	void SetCantiad(int _cantiad) { /* No se implementa en la clase Articulo */ }
+
+
+};
+
+// Función para generar el reporte de publicaciones
+void reportePublicaciones(const vector<Libro>& libros, const vector<Revista>& revistas, const vector<Articulo>& articulos) {
+	cout << "----- Reporte de Publicaciones -----" << endl;
+	cout << "Libros:" << endl;
+	for (const auto& libro : libros) {
+		cout << "ID: " << libro.getId() << ", Título: " << libro.getTitulo() << ", Autor: " << libro.getAutor()
+			<< ", Editorial: " << libro.getEditorial() << ", Materia: " << libro.getMateria() << ", Estado: " << (libro.getEstado() ? "Disponible" : "Agotado")
+			<< ", Cantidad de ejemplares: " << libro.getCantidadEjemplares() << endl;
+	}
+
+	cout << "Revistas:" << endl;
+	for (const auto& revista : revistas) {
+		cout << "ID: " << revista.getId() << ", Título: " << revista.getTitulo() << ", Año: " << revista.getAnio()
+			<< ", Número: " << revista.getNumero() << ", Materia: " << revista.getMateria() << ", Estado: " << (revista.getEstado() ? "Disponible" : "Agotado") << endl;
+	}
+
+	cout << "Artículos:" << endl;
+	for (const auto& articulo : articulos) {
+		cout << "ID: " << articulo.getId() << ", Título: " << articulo.getTitulo() << ", Árbitro: " << articulo.getArbitro()
+			<< ", Materia: " << articulo.getMateria() << ", Estado: " << (articulo.getEstado() ? "Disponible" : "Agotado") << endl;
+	}
+}
+
+
+
+
 
 void menuReportes() {
 	int opcion;
@@ -93,6 +231,7 @@ void menuReportes() {
 }
 
 void Menu_principal(string nombre, string contrasenia) {
+	vector<Revista> nuevarevista;
 	if (nombre == "adimin" && contrasenia == "ADMIN") {
 		//Esto se va a usar para dividir el admin y el cliente
 	}
