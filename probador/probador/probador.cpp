@@ -12,7 +12,9 @@
 using namespace std;
 #include <cstdio>
 #include <vector>
-
+#include "Cliente.h"
+#include "Admin.h"
+#include"Persona.h"
 //Pasos para usar con tortoise
 //primero comit
 //segundo PULL
@@ -21,214 +23,21 @@ using namespace std;
 vector<Revista> nuevarevista;
 vector<Libro> nuevolibro;
 vector<Articulo> nuevoarticulo;
-
-class Publicacion {
-protected:
-	int id;
-	string titulo;
-	string materia;
-	bool estado; // Disponible o agotadopublic:
-
-	//constructor prederteminado 
-	Publicacion() : id(0), titulo(""), materia(""), estado(false) {}
-	Publicacion(int _id, string _titulo, string _materia, bool _estado) : id(_id), titulo(_titulo), materia(_materia), estado(_estado) {}
-
-	// Getters
-	int getId() const { return id; }
-	string getTitulo() const { return titulo; }
-	string getMateria() const { return materia; }
-	bool getEstado() const { return estado; }
-};
-
-class Libro : public Publicacion {
-private:
-	string autor;
-	string editorial;
-	int cantidadEjemplares;
-
-public:
-
-	//constructor 
-	Libro() : autor(""), editorial(""), cantidadEjemplares(0) {}
-
-
-
-	Libro(int _id, string _titulo, string _materia, bool _estado, string _autor, string _editorial, int _cantidadEjemplares) :
-		Publicacion(_id, _titulo, _materia, _estado), autor(_autor), editorial(_editorial), cantidadEjemplares(_cantidadEjemplares) {}
-
-	// Getters
-	string getAutor() const { return autor; }
-	string getEditorial() const { return editorial; }
-	int getCantidadEjemplares() const { return cantidadEjemplares; }
-
-	//setters
-	void SetAutor(const string& _autor) { autor = _autor; }
-	void SetEditorial(const string& _editorial) { editorial = _editorial; }
-	void SetCantiad(int _cantiad) { int cantiad = _cantiad; }
-	// heredados
-	void SetId(int _id) { id = _id; }
-	void SetTitulo(const string& _titulo) { titulo = _titulo; }
-	void SetMateria(const string& _materia) { materia = _materia; }
-	void SetEstado(bool _estado) { estado = _estado; }
+vector <Cliente> cliente;
 
 
 
 
 
-};
-
-class Revista : public Publicacion {
-private:
-	int anio;
-	int numero;
-
-public:
-	// constructor predeterminado 
-
-	Revista() : anio(0), numero(0) {}
-	Revista(int _id, string _titulo, string _materia, bool _estado, int _anio, int _numero) :
-		Publicacion(_id, _titulo, _materia, _estado), anio(_anio), numero(_numero) {}
-
-	// Getters
-	int getAnio() const { return anio; }
-	int getNumero() const { return numero; }
-
-	//setters 
-	void SetAnio(int _anio) { anio = _anio; }
-	void SetNumero(int _numero) { numero = _numero; }
-
-
-	void SetId(int _id) { id = _id; }
-	void SetTitulo(string _titulo) { titulo = _titulo; }
-	void SetMateria(string _materia) { materia = _materia; }
-	void SetAnio(int _anio) { anio = _anio; }
-	void SetEstado(bool _estado) { estado = _estado; }
-
-}; 
-
-class Articulo : public Publicacion {
-private:
-	string arbitro;
-
-public:
-	//constructor predeterminado 
-	Articulo() : arbitro("") {}
-	Articulo(int _id, string _titulo, string _materia, bool _estado, string _arbitro) :
-		Publicacion(_id, _titulo, _materia, _estado), arbitro(_arbitro) {}
-
-	// Getter
-	string getArbitro() const { return arbitro; }
-
-	// Setter
-	void SetArbitro(const string& _arbitro) { arbitro = _arbitro; }
-
-	// Heredados
-	void SetId(int _id) { id = _id; }
-	void SetTitulo(const string& _titulo) { titulo = _titulo; }
-	void SetMateria(const string& _materia) { materia = _materia; }
-	void SetEstado(bool _estado) { estado = _estado; }
-	void SetCantiad(int _cantiad) { /* No se implementa en la clase Articulo */ }
-
-
-};
-
-// Función para generar el reporte de publicaciones
-void reportePublicaciones(const vector<Libro>& libros, const vector<Revista>& revistas, const vector<Articulo>& articulos) {
-	cout << "----- Reporte de Publicaciones -----" << endl;
-	cout << "Libros:" << endl;
-	for (const auto& libro : libros) {
-		cout << "ID: " << libro.getId() << ", Título: " << libro.getTitulo() << ", Autor: " << libro.getAutor()
-			<< ", Editorial: " << libro.getEditorial() << ", Materia: " << libro.getMateria() << ", Estado: " << (libro.getEstado() ? "Disponible" : "Agotado")
-			<< ", Cantidad de ejemplares: " << libro.getCantidadEjemplares() << endl;
-	}
-
-	cout << "Revistas:" << endl;
-	for (const auto& revista : revistas) {
-		cout << "ID: " << revista.getId() << ", Título: " << revista.getTitulo() << ", Año: " << revista.getAnio()
-			<< ", Número: " << revista.getNumero() << ", Materia: " << revista.getMateria() << ", Estado: " << (revista.getEstado() ? "Disponible" : "Agotado") << endl;
-	}
-
-	cout << "Artículos:" << endl;
-	for (const auto& articulo : articulos) {
-		cout << "ID: " << articulo.getId() << ", Título: " << articulo.getTitulo() << ", Árbitro: " << articulo.getArbitro()
-			<< ", Materia: " << articulo.getMateria() << ", Estado: " << (articulo.getEstado() ? "Disponible" : "Agotado") << endl;
-	}
-}
 
 
 
 
 
-void menuReportes() {
-	int opcion;
-	do {
-		cout << "----- Menú de Reportes -----" << endl;
-		cout << "1. Reporte de préstamos" << endl;//admin
-		cout << "2. Reporte de clientes con préstamos" << endl;//adimin
-		cout << "3. Reporte de morosos y multas" << endl;//adimin
-		cout << "4. Reporte de publicaciones" << endl;//admin
-		cout << "5. Volver al menú principal" << endl;
-		cout << "Seleccione una opción: \n";
-		cin >> opcion;
-
-		switch (opcion) {
-		case 1:
-			/*reportePrestamos();*/
-			/*string tipo;
-			int id = 0, nuLibro = 0, temp = 0;
-			cout << "que clase de documento va a registrar\n";
-			cin >> tipo;
-			cout << "ingrese el id del documento\n";
-			cin >> id;
-			if (tipo == "libro") {
-
-				for (int i = 0; i < nuevolibro.size();i++) {
-					if (nuevolibro[i].GetId() == id) {
-						cout << "Su libro es " + nuevolibro[i].GetTitulo() + " de " + nuevolibro[i].GetAutor() << endl;
-						cout << "cuantos libros desea prestar?\n";
-						cin >> nuLibro;
-						if (nuevolibro[i].GetEstado()) {
-							temp = nuevolibro[i].GetCantidad();
-							nuevolibro[i].SetCantiad(temp - nuLibro);
-							if (nuevolibro[i].GetCantidad() < 0) {
-								cout << "no hay sufientes libros o libros agotados\n";
-								nuevolibro[i].SetEstado(0);
-							}
-							else {
-								cout << "Sus libros han sido prestados\n";
-
-							}
-						}
-						else {
-							cout << "Lo sentimos, su libro no esta disponible\n";
-						}
 
 
-					}
 
-				}
-			}*/
-			break;
-		case 2:
-			//  reporteClientesPrestamos();
-			break;
-		case 3:
-			//   reporteMorososMultas();
-			break;
-		case 4:
-			//   reportePublicaciones();
-			break;
-		case 5:
-			cout << "Volviendo al menú principal..." << endl;
-			system("cls");
 
-			break;
-		default:
-			cout << "Opción no válida. Inténtelo de nuevo." << endl;
-			system("cls");
-		}
-	} while (opcion <= 5);
-}
 
 void Menu_principal(string nombre, string contrasenia) {
 	vector<Revista> nuevarevista;
@@ -256,8 +65,8 @@ void Menu_principal(string nombre, string contrasenia) {
 	do {
 
 		cout << "----- Menú Principal -----" << endl;
-		cout << "1. Registrar publicacion" << endl;//adimin
-		cout << "2. Registrar cliente" << endl;//adimin
+		cout << "1. Registrar publicacion" << endl;//adiminX
+		cout << "2. Registrar cliente" << endl;//adiminX
 		cout << "3. Realizar préstamo" << endl;//cliente
 		cout << "4. Devolver publicación" << endl;//cliente
 		cout << "5. Reportes" << endl;//admin
@@ -398,17 +207,20 @@ void Menu_principal(string nombre, string contrasenia) {
 		case 2:
 			cout << "registro de cliente\n";
 
-			/* registrarCliente();
-		   int numId;
-		   string nombre, direccion;
-		   cout << "Ingrese el número de identidad del cliente: ";
-		   cin >> numId;
-		   cout << "Ingrese el nombre del cliente: ";
-		   cin.ignore();
-		   getline(cin, nombre);
-		   cout << "Ingrese la dirección del cliente: ";
-		   getline(cin, direccion);
-		   clientes.push_back(new Cliente(numId, nombre, direccion));*/
+			
+			int numId;
+			string nombre, direccion;
+			Cliente nuevoCliente;
+			cout << "Ingrese el número de identidad del cliente: \n";
+			cin >> numId;
+			nuevoCliente.SetId(numId);
+			cout << "Ingrese el nombre del cliente: \n";
+			cin.ignore();
+			getline(cin, nombre);
+			nuevoCliente.SetNombre(nombre);
+				cout << "Ingrese la dirección del cliente: \n";
+			getline(cin, direccion);
+			cliente.push_back(nuevoCliente);
 
 			break;
 		case 3:
@@ -447,22 +259,99 @@ void Menu_principal(string nombre, string contrasenia) {
 
 			break;
 		case 5:
-			cout << "menu de reportes\n";
-			//menuReportes();
+			//cout << "menu de reportes\n";
+			menuReportes();
 
 			break;
-			/*case 6:
-				cout << "Saliendo del programa..." << endl;
-				opc = 8;
-				break;*/
+		case 6:
+			
+			break;
 
 
 		}
 
-	} while (opc < 6);
+	} while (opc < 7);
 
 }
+void menuReportes() {
+	int opcion;
+	do {
+		cout << "----- Menú de Reportes -----" << endl;
+		cout << "1. Reporte de préstamos" << endl;//adminX copiar
+		cout << "2. Reporte de clientes con préstamos" << endl;//adimin copiar ↑
+		cout << "3. Reporte de morosos y multas" << endl;//adimin
+		cout << "4. Reporte de publicaciones" << endl;//admin cliclo for
+		cout << "5. Volver al menú principal" << endl;
+		cout << "Seleccione una opción: \n";
+		cin >> opcion;
 
+		switch (opcion) {
+		case 1:
+			//Reporte de préstamos
+			string tipo;
+			int id = 0, nuLibro = 0, temp = 0, cli;
+			cout << "que clase de documento va a registrar\n";
+			cin >> tipo;
+			cout << "ingrese el id del documento\n";
+			cin >> id;
+			if (tipo == "libro") {
+
+				for (int i = 0; i < nuevolibro.size();i++) {
+					if (nuevolibro[i].GetId() == id) {
+						cout << "Su libro es " + nuevolibro[i].GetTitulo() + " de " + nuevolibro[i].GetAutor() << endl;
+						cout << "cuantos libros desea prestar?\n";
+						cin >> nuLibro;
+						if (nuevolibro[i].GetEstado()) {
+							temp = nuevolibro[i].GetCantidad();
+							nuevolibro[i].SetCantiad(temp - nuLibro);
+							if (nuevolibro[i].GetCantidad() < 0) {
+								cout << "no hay sufientes libros o libros agotados\n";
+								nuevolibro[i].SetEstado(0);
+							}
+							else {
+								cout << "ingrese el numero id del cliente\n";
+								cin >> cli;
+
+								for (int i = 0;i < cliente.size();i++) {
+									if (cli == cliente[i].getId()) {
+										cout << "Sus libros han sido prestados a " << cliente[i].getNombre() << endl;
+										cliente[i].setPublicacion_presta(nuLibro);
+									}
+								}
+
+
+							}
+						}
+						else {
+							cout << "Lo sentimos, su libro no esta disponible\n";
+						}
+
+
+					}
+
+				}
+			}
+
+			break;
+		case 2:
+			//  reporteClientesPrestamos();
+			break;
+		case 3:
+			//   reporteMorososMultas();
+			break;
+		case 4:
+			//   reportePublicaciones();
+			break;
+		case 5:
+			cout << "Volviendo al menú principal..." << endl;
+			system("pause");
+			system("cls");
+
+			break;
+		
+		}
+	} while (opcion <= 5);
+}
 int main()
 {
 	string nombre, constrasenia;
