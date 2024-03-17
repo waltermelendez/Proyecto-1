@@ -131,8 +131,11 @@
     <ClCompile Include="Articulo.cpp" />
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="Documento.cpp" />
+    <ClCompile Include="Fechas.cpp" />
+    <ClCompile Include="GestorPrestamos.cpp" />
     <ClCompile Include="Libro.cpp" />
     <ClCompile Include="Persona.cpp" />
+    <ClCompile Include="Prestamo.cpp" />
     <ClCompile Include="probador.cpp" />
     <ClCompile Include="Revista.cpp" />
   </ItemGroup>
@@ -141,8 +144,11 @@
     <ClInclude Include="Articulo.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Documento.h" />
+    <ClInclude Include="Fechas.h" />
+    <ClInclude Include="GestorPrestamos.h" />
     <ClInclude Include="Libro.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Prestamo.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Revista.h" />
   </ItemGroup>

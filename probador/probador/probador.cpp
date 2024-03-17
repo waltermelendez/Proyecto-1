@@ -6,7 +6,11 @@
 #include "Articulo.h"
 #include "Documento.h"
 #include "Libro.h"
+#include "Prestamo.h"
+#include "Fechas.h"
+#include "GestorPrestamos.h"
 #include"Revista.h"
+#include "Cliente.h"
 #include <locale.h>
 #include <vector>
 using namespace std;
@@ -18,6 +22,7 @@ using namespace std;
 //segundo PULL
 //tercero PUSH
 
+vector<Cliente> clientes;
 vector<Revista> nuevarevista;
 vector<Libro> nuevolibro;
 vector<Articulo> nuevoarticulo;
@@ -398,7 +403,6 @@ void Menu_principal(string nombre, string contrasenia) {
 		case 2:
 			cout << "registro de cliente\n";
 
-			/* registrarCliente();
 		   int numId;
 		   string nombre, direccion;
 		   cout << "Ingrese el número de identidad del cliente: ";
@@ -408,35 +412,31 @@ void Menu_principal(string nombre, string contrasenia) {
 		   getline(cin, nombre);
 		   cout << "Ingrese la dirección del cliente: ";
 		   getline(cin, direccion);
-		   clientes.push_back(new Cliente(numId, nombre, direccion));*/
+
+		   // Crear un nuevo objeto Cliente con los datos ingresados por el usuario
+		   Cliente nuevoCliente(numId, nombre, direccion, 0); // 0 es un valor de ejemplo para publicacion_presta
+
+		   // Agregar el nuevo cliente al vector de clientes
+		   clientes.push_back(nuevoCliente);
+
+		   cout << "Cliente registrado con éxito." << endl;
+
 
 			break;
 		case 3:
-			cout << "realizar prestamo\n";
-			/* realizarPrestamo();
-			int idCliente;
-			string tipoPublicacion;
-			cout << "Ingrese el ID del cliente: ";
-			cin >> idCliente;
-			 Verificar si el cliente existe
-			bool clienteEncontrado = false;
-			Cliente* cliente = nullptr;
-			for (auto& c : clientes) {
-				if (c->getNumId() == idCliente) {
-					clienteEncontrado = true;
-					cliente = c;
-					break;
-				}
-			}
-			if (!clienteEncontrado) {
-				cout << "Cliente no encontrado." << endl;
-				return;
-			}*/
+			// Realizar préstamo
+			int idCliente, idPublicacion;
+			// Lógica para solicitar y verificar el ID del cliente y la publicación a prestar
+			// Supongamos que ya se han obtenido los IDs del cliente y de la publicación
 
-			/*cout << "Ingrese el tipo de publicación a prestar (libro, revista, articulo): ";
-			cin >> tipoPublicacion;*/
-			// Lógica para realizar el préstamo según el tipo de publicación
+			// Crear el objeto de Prestamo
+			Prestamo prestamo(idCliente, idPublicacion);
 
+			// Agregar el préstamo al gestor de préstamos
+			GestorPrestamos gestorPrestamos;
+			gestorPrestamos.agregarPrestamo(prestamo);
+
+			// Lógica adicional según sea necesario, como guardar los préstamos en un archivo, actualizar el estado de la publicación, etc.
 			break;
 		case 4:
 			cout << "devoler publi\n";
